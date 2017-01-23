@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="test_db@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="test_db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="letter">
+      <Comment>Letters</Comment>
+    </table>
+    <table id="8" parent="2" name="person">
+      <Comment>People who work with letters</Comment>
+    </table>
+    <column id="9" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="10" parent="7" name="id_sender">
+      <Position>2</Position>
+      <Comment>Letter sender</Comment>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="11" parent="7" name="id_recipient">
+      <Position>3</Position>
+      <Comment>Letter recipient</Comment>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="7" name="subject">
+      <Position>4</Position>
+      <Comment>Letter Subject (theme)</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="13" parent="7" name="text">
+      <Position>5</Position>
+      <Comment>Letter text</Comment>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="7" name="send_date">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="15" parent="7" name="c_letter_recipient_fk">
+      <ColNames>id_recipient</ColNames>
+    </index>
+    <index id="16" parent="7" name="c_letter_sender_fk">
+      <ColNames>id_sender</ColNames>
+    </index>
+    <key id="17" parent="7" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="18" parent="7" name="c_letter_sender_fk">
+      <ColNames>id_sender</ColNames>
+      <RefSchemaName>test_db</RefSchemaName>
+      <RefTableName>person</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="19" parent="7" name="c_letter_recipient_fk">
+      <ColNames>id_recipient</ColNames>
+      <RefSchemaName>test_db</RefSchemaName>
+      <RefTableName>person</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="20" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="8" name="last_name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="22" parent="8" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="8" name="middle_name">
+      <Position>4</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="24" parent="8" name="date_of_birth">
+      <Position>5</Position>
+      <Comment>Дата рождения</Comment>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="25" parent="8" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
