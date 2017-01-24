@@ -11,6 +11,8 @@ public class Letter extends Entity {
     private String subject;
     private String text;
     private Date sendDate;
+    private Person sender;
+    private Person recipient;
 
     public Letter() {
     }
@@ -24,20 +26,36 @@ public class Letter extends Entity {
         this.sendDate = sendDate;
     }
 
-    public int getSender() {
+    public Person getSender() {
+        return sender;
+    }
+
+    public Person getRecipient() {
+        return recipient;
+    }
+
+    public int getIdSender() {
         return idSender;
     }
 
-    public void setSender(int idSender) {
+    public void setIdSender(int idSender) {
         this.idSender = idSender;
     }
 
-    public int getRecipient() {
+    public int getIdRecipient() {
         return idRecipient;
     }
 
-    public void setRecipient(int idRecipient) {
+    public void setIdRecipient(int idRecipient) {
         this.idRecipient = idRecipient;
+    }
+
+    public void setSender(Person sender) {
+        this.sender = sender;
+    }
+
+    public void setRecipient(Person recipient) {
+        this.recipient = recipient;
     }
 
     public String getSubject() {
