@@ -1,6 +1,8 @@
 package org.data.subject;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by mr_St on 19.01.17.
@@ -11,6 +13,9 @@ public class Person extends Entity {
     private String middleName;
     private Date dateOfBirth;
 
+    private Set<Letter> sendLetters = new HashSet<Letter>();
+    private Set<Letter> recieveLetters = new HashSet<Letter>();
+
     public Person() {
     }
 
@@ -20,6 +25,22 @@ public class Person extends Entity {
         this.firstName = firstName;
         this.middleName = middleName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Set<Letter> getSendLetters() {
+        return sendLetters;
+    }
+
+    public void setSendLetters(Set<Letter> sendLetters) {
+        this.sendLetters = sendLetters;
+    }
+
+    public Set<Letter> getRecieveLetters() {
+        return recieveLetters;
+    }
+
+    public void setRecieveLetters(Set<Letter> recieveLetters) {
+        this.recieveLetters = recieveLetters;
     }
 
     public String getLastName() {
