@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.data.subject.Letter" table="letter">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="idSender" column="id_sender"/>
+        <property name="idRecipient" column="id_recipient"/>
+        <property name="subject" column="subject"/>
+        <property name="text" column="text"/>
+        <property name="sendDate" column="send_date"/>
+
+        <many-to-one name="sender" class="org.data.subject.Person" />
+
+    </class>
+</hibernate-mapping>
+
+
+
+
+<many-to-one name="stock" class="com.mkyong.stock.Stock" fetch="select">
+<column name="STOCK_ID" not-null="true" />
+</many-to-one>

@@ -1,6 +1,27 @@
-<?xml version="1.0" encoding="UTF-8">
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hi
+<hibernate-mapping>
+    <class name="org.data.subject.Person" table="person">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="lastName" column="last_name"/>
+        <property name="firstName" column="middle_name"/>
+        <property name="middleName" column="middle_name"/>
+        <property name="dateOfBirth" column="date_of_birth"/>
+
+        <set name="sendLetters" table="letter" lazy="true">
+            <key column="id_sender"/>
+            <one-to-many class="org.data.subject.Letter"/>
+        </set>
+
+        <set name="recieveLetters" lazy="true">
+            <key column="id_recipient"/>
+            <one-to-many class="org.data.subject.Letter"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
