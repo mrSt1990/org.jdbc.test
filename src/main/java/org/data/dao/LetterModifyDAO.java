@@ -46,8 +46,8 @@ public class LetterModifyDAO extends AbstractModifyDAO<Letter> {
         PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(SQL_INSERT_LETTER);
-            statement.setInt(1, entity.getSender());
-            statement.setInt(2, entity.getRecipient());
+            statement.setInt(1, entity.getIdSender());
+            statement.setInt(2, entity.getIdRecipient());
             statement.setString(3, entity.getSubject());
             statement.setString(4, entity.getText());
             statement.setDate(5, new Date(entity.getSendDate().getTime()));
@@ -71,7 +71,7 @@ public class LetterModifyDAO extends AbstractModifyDAO<Letter> {
         boolean flag = false;
         PreparedStatement statement = null;
         Letter letter = new Letter();
-        letter.setSender(id_sender);
+        letter.setIdSender(id_sender);
         letter.setSubject(subject);
         letter.setText(text);
         letter.setSendDate(new java.util.Date());
@@ -81,7 +81,7 @@ public class LetterModifyDAO extends AbstractModifyDAO<Letter> {
             for (Person person :
                     personList) {
                 if (person.getId() != id_sender) {
-                    letter.setRecipient(person.getId());
+                    letter.setIdRecipient(person.getId());
                     create(letter);
                 }
             }

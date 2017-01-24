@@ -67,8 +67,8 @@ public class LetterGetDAO extends AbstractGetDAO<Letter> {
     @Override
     protected void fillEntity(ResultSet resultSet, Letter entity) throws SQLException {
         entity.setId(resultSet.getInt("id"));
-        entity.setRecipient(resultSet.getInt("id_recipient"));
-        entity.setSender(resultSet.getInt("id_sender"));
+        entity.setIdRecipient(resultSet.getInt("id_recipient"));
+        entity.setIdSender(resultSet.getInt("id_sender"));
         entity.setSendDate(resultSet.getDate("send_date"));
         entity.setSubject(resultSet.getString("subject"));
         entity.setText(resultSet.getString("text"));
